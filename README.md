@@ -51,7 +51,7 @@ The sophisticated way to unsolder is with [Chip Quik](http://www.chipquik.com/st
 | [![](doc/weact_04.jpg)](doc/weact_04.jpg) | [![](doc/mcudev_04.jpg)](doc/mcudev_04.jpg) |
 | [![](doc/weact_05.jpg)](doc/weact_05.jpg) | [![](doc/mcudev_05.jpg)](doc/mcudev_05.jpg) |
 
-Pictures of the boards. The modified chips are marked with a red dot on pin 1.
+Pictures of the boards. The modified chips are marked with a red dot on pin 1. There are more pictures in the [docs/](docs/) directory.
 
 ## First Power Up
 
