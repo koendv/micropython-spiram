@@ -5,7 +5,7 @@ This is a project to add megabytes of ram to a stm32h7 micropython board, withou
 Steps:
 
 - take an stm32h7 board
-- replace the spi flash with a pin-compatible esp-psram64h spi ram
+- replace the spi flash with pin-compatible spi ram
 - replace the stm32h750 processor with a pin-compatible stm32h7a3. The stm32h7a3 supports memory mapping spi ram and flash; the stm32h750 only supports memory-mapping flash.
 - port micropython to the stm32h7a3
 - add driver for spi ram
@@ -80,7 +80,7 @@ The line marked "Internal Flash" is the information we need to modify the microp
 
 - The board has a trace from processor SPI pin to the SPI memory ic, and from processor SPI pin to the board DuPont connectors. At low speeds this is not a problem, but at high speeds the trace to the DuPont connector will cause reflections.
 
-- The STM32H7A3VIT6 is pin-compatible with STM32H750VBT6, so you do not have to modify the pcb. For new designs you might consider the STM32H7A3VIT6Q. The difference between STM32H7A3VIT6 and STM32H7A3VIT6Q is that the STM32H7A3VIT6Q has built in switching power supplies. 
+- The STM32H7A3VIT6 is pin-compatible with STM32H750VBT6, so you do not have to modify the pcb.
 
 ## Links
 ### WeAct-TC/MiniSTM32H7xx
