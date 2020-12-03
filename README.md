@@ -1,6 +1,6 @@
 # micropython-spiram
 
-This is a project to add 8 mbyte ram to a stm32h7 micropython board, without changing the pcb.
+This is a project to add megabytes of ram to a stm32h7 micropython board, without changing the pcb.
 
 Steps:
 
