@@ -76,7 +76,7 @@ The line marked "Internal Flash" is the information we need to modify the microp
 
 ## Considerations
 
-- Up to 4 spi flash or ram memories can be conencted to the STM32H7A3VIT6.
+- Up to 4 spi flash or ram memories can be connected to the STM32H7A3VIT6.
 
 - The board has is a trace from processor SPI pin to the SPI memory ic, and from processor SPI pin to the board DuPont connectors. At low speeds this is not a problem, but at high speeds the trace to the DuPont connector will cause reflections.
 
