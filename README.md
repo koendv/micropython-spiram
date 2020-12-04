@@ -53,7 +53,7 @@ The sophisticated way to unsolder is with [Chip Quik](http://www.chipquik.com/st
 | [![](doc/weact_04.jpg)](doc/weact_04.jpg) | [![](doc/mcudev_04.jpg)](doc/mcudev_04.jpg) |
 | [![](doc/weact_05.jpg)](doc/weact_05.jpg) | [![](doc/mcudev_05.jpg)](doc/mcudev_05.jpg) |
 
-Pictures of the boards. The modified chips are marked with a red dot on pin 1. A pin has been soldered to the DEVEBOARD STM32H7XX reset button. [More pictures](doc/README.md) directory.
+Pictures of the boards. The modified chips are marked with a red dot on pin 1. A pin has been soldered to the DEVEBOARD STM32H7XX reset button. [More pictures](doc/README.md).
 
 ## First Power Up
 
