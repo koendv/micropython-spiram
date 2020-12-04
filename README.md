@@ -35,6 +35,8 @@ Lyontek LY68L6400SLIT and Espressif ESP-PSRAM64H seem to be different names for 
 
 These boards use a STM32H750VBT6 processor in a LQFP100 package. Replace the STM32H750VBT6 with a STM32H7A3VIT6. 
 
+The STM32H7A3VIT6 is pin-compatible with STM32H750VBT6, so you do not have to modify the pcb.
+
 The sophisticated way to unsolder is with [Chip Quik](http://www.chipquik.com/store/index.php?cPath=200) or [Fast Chip](https://sra-solder.com/fast-chip-kit-for-quik-smd-removal) solder removal alloy. I do it the unsophisticated way: take a scalpel and cut through the pins, then unsolder the pins one by one. Put kapton tape on the parts of the board you do not wish to solder. 
 
 ### Before
@@ -51,11 +53,11 @@ The sophisticated way to unsolder is with [Chip Quik](http://www.chipquik.com/st
 | [![](doc/weact_04.jpg)](doc/weact_04.jpg) | [![](doc/mcudev_04.jpg)](doc/mcudev_04.jpg) |
 | [![](doc/weact_05.jpg)](doc/weact_05.jpg) | [![](doc/mcudev_05.jpg)](doc/mcudev_05.jpg) |
 
-Pictures of the boards. The modified chips are marked with a red dot on pin 1. There are more pictures in the [doc/](doc/) directory.
+Pictures of the boards. The modified chips are marked with a red dot on pin 1. A pin has been soldered to the DEVEBOARD STM32H7XX reset button. [More pictures](doc/README.md) directory.
 
 ## First Power Up
 
-Check the processor responds when connecting a debugger to the SWD port. The debugger needs SWDIO, SWCLK, and NRST. On the WeAct MiniSTM32H7xx the NRST pin is on the DuPont connector. On the DEVEBOX STM32H7XX you need to solder a pin to the RST button contacts.
+Check the processor responds when connecting a debugger to the SWD port. The debugger needs SWDIO, SWCLK, and NRST. On the WeAct MiniSTM32H7xx the NRST pin is on the DuPont connector. On the DEVEBOX STM32H7XX you need to solder a pin to the RST button.
 
 Connect usb, and boot in dfu mode. Check `dfu-util -l` sees device:
 ```
@@ -76,11 +78,9 @@ The line marked "Internal Flash" is the information we need to modify the microp
 
 ## Considerations
 
-- Up to 4 spi flash or ram memories can be connected to the STM32H7A3VIT6.
+- The STM32H7A3VIT6 has two *OCTO-SPI* controllers,  two spi memories per controller, 4 spi flash or ram memories in total. With 8 Mbyte SPI RAM chips, maximum RAM is 32 Mbyte external + 1 Mbyte internal = 33 Mbyte.
 
 - The board has a trace from processor SPI pin to the SPI memory ic, and from processor SPI pin to the board DuPont connectors. At low speeds this is not a problem, but at high speeds the trace to the DuPont connector will cause reflections.
-
-- The STM32H7A3VIT6 is pin-compatible with STM32H750VBT6, so you do not have to modify the pcb.
 
 ## Links
 ### WeAct-TC/MiniSTM32H7xx
