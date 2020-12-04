@@ -1,14 +1,18 @@
+## Rework
+
 | WeAct | mcudev |
 |--- | ---|
+| Old MCU removed | |
 | [![](weact_01.jpg)](weact_01.jpg) | [![](mcudev_01.jpg)](mcudev_01.jpg) |
-| Old mcu removed | |
+| PCB covered with Kapton tape | |
 | [![](weact_02.jpg)](weact_02.jpg) | [![](mcudev_02.jpg)](mcudev_02.jpg) |
-| Kapton tape | |
+| Old pins removed, pads cleaned | |
 | [![](weact_03.jpg)](weact_03.jpg) | [![](mcudev_03.jpg)](mcudev_03.jpg) |
-| Cleaned | |
+| New MCUs | |
 | [![](new_chips.jpg)](new_chips.jpg) | |
-| New mcu's | |
+| New MCU soldered - front | |
 | [![](weact_04.jpg)](weact_04.jpg) | [![](mcudev_04.jpg)](mcudev_04.jpg) |
-| New mcu soldered - front | |
+| New MCU soldered - back | |
 | [![](weact_05.jpg)](weact_05.jpg) | [![](mcudev_05.jpg)](mcudev_05.jpg) |
-| New mcu soldered - back | |
+
+Changed ICs marked with a red dot on pin 1.
