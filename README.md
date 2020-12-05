@@ -21,7 +21,7 @@ I'm using two different boards:
 - DEVEBOX STM32H7XX
 - WeAct MiniSTM32H7xx
 
-These are "Made in Asia" boards in the 15-20$ price range, with a STM32H750VBT6 processor. spi flash is used to store firmware and data. These boards are roughly similar to the [OpenMV H7](https://openmv.io/collections/products/products/openmv-cam-h7), have connectors for camera and lcd, and run openmv (Open Machine Vision) software.
+These are "Made in Asia" boards in the 10-20$ price range, with a STM32H750VBT6 processor. spi flash is used to store firmware and data. These boards are roughly similar to the [OpenMV H7](https://openmv.io/collections/products/products/openmv-cam-h7), have connectors for camera and lcd, and run openmv (Open Machine Vision) software.
 
 ## Replace SPI flash
 
@@ -71,7 +71,6 @@ Found DFU: [0483:df11] ver=0200, devnum=10, cfg=1, intf=0, path="1-1.1", alt=0, 
 ```
 Take the dfu-util output marked "Internal Flash", and in the micropython bootloader ``ports/stm32/mboot/main.c`` put :
 
-
 ```
 #define FLASH_LAYOUT_STR "@Internal Flash  /0x08000000/256*08Kg" MBOOT_SPIFLASH_LAYOUT MBOOT_SPIFLASH2_LAYOUT
 ```
@@ -89,7 +88,7 @@ The STM32H7A3 processor is not yet supported in micropython. Browse the code gen
 
 ## Considerations
 
-- The STM32H7A3VIT6 has two *OCTO-SPI* controllers,  two spi memories per controller, 4 spi flash or ram memories in total. With 8 Mbyte spi ram chips, maximum ram is 32 Mbyte external + 1 Mbyte internal = 33 Mbyte.
+- The STM32H7A3VIT6 has two *OCTO-SPI* controllers, two spi memories per controller, 4 spi flash or ram memories in total. With 8 Mbyte spi ram chips, maximum ram is 32 Mbyte external + 1 Mbyte internal = 33 Mbyte.
 
 - The board has a trace from processor SPI pin to the SPI memory ic, and from processor SPI pin to the board DuPont connectors. At low speeds this is not a problem, but at high speeds the trace to the DuPont connector will cause reflections.
 
