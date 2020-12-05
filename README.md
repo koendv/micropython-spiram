@@ -101,6 +101,8 @@ The STM32H7A3 processor is not yet supported in micropython. Browse the code gen
 )
 - [aliexpress](https://www.aliexpress.com/store/910567080)
 
+The WeAct git also has code to run STM32H750 from external spi flash.
+
 ### DEVEBOX STM32H7XX
 
 - [github](https://github.com/mcauser/MCUDEV_DEVEBOX_H7XX_M)
