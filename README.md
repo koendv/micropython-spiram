@@ -86,8 +86,9 @@ The STM32H7A3 processor is not yet supported in micropython. Browse the code gen
 Main differences between H743 and H7A3:
 
 - clock generation
-- H743 has full-speed and high-speed usb, H7A3 only high-speed usb
+- 1 USB instead of 2
 - 2 ADCs instead of 3
+- 2 octo-spi (8 wire spi) instead of 1 quad-spi (4 wire spi)
 
 *Work in progress*
 
