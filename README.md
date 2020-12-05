@@ -8,7 +8,7 @@ Steps:
 - replace the spi flash with pin-compatible spi ram
 - replace the stm32h750 processor with a pin-compatible stm32h7a3. The stm32h7a3 supports memory mapping spi ram and flash; the stm32h750 only supports memory-mapping flash.
 - port micropython to the stm32h7a3
-- add pi ram driver
+- add spi ram driver
 - compile openmv (Open Machine Vision) for the stm32h7a3
 
 
