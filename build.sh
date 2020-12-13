@@ -6,7 +6,7 @@ Micropython firmware for stm32h7a3. Boot in dfu mode and install with:
 
 Compiler info:
 EOD
-arm-none-eabi-gcc --v >> readme.txt
+arm-none-eabi-gcc --version >> readme.txt
 date >> readme.txt
 rm -f ${ZIP}
 
@@ -17,7 +17,7 @@ wget https://raw.githubusercontent.com/koendv/micropython-spiram/main/stm32h7a3.
 patch -p1 < stm32h7a3.patch
 make -C ports/stm32 submodules
 make -C mpy-cross/
-for BRD in DEVEBOX_STM32H7A3  WeActStudioSTM32H7A3
+for BRD in DEVEBOX_STM32H7A3  WeActStudioSTM32H7A3 NUCLEO_H7A3ZI
 do
   make -C ports/stm32 BOARD=$BRD
   (cd ports/stm32; zip -9 ${ZIP} ./build-${BRD}/firmware.dfu ./build-${BRD}/firmware.elf)
