@@ -106,8 +106,6 @@ The 1 Mbyte of free memory is the internal memory of the mcu.
 
 ## Considerations
 
-- The STM32H7A3VIT6 has two *OCTO-SPI* controllers, two spi memories per controller, 4 spi flash or ram memories in total. With 8 Mbyte spi ram chips, maximum ram is 32 Mbyte external + 1 Mbyte internal = 33 Mbyte.
-
 - The board has a trace from processor SPI pin to the SPI memory ic, and from processor SPI pin to the board DuPont connectors. At low speeds this is not a problem, but at high speeds the trace to the DuPont connector will cause reflections.
 
 ## Links
