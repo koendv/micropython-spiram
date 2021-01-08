@@ -29,7 +29,7 @@ Replace the Winbond W25Q64JVSSIQ 8 mbyte SPI flash memory with a Espressif ESP-P
 
 These two ic's are pin compatible. The ESP-PSRAM64H spi ram is 150 mil wide while the W25Q64 spi flash is 208 mil wide, but you can solder both in the same footprint. 
 
-Lyontek LY68L6400SLIT and Espressif ESP-PSRAM64H seem to be different names for the same chip.
+Lyontek LY68L6400SLIT, Espressif ESP-PSRAM64H, APMemory APS6404L-3SQN seem to be pin compatible.
 
 ## Replace STM32H7 processor
 
