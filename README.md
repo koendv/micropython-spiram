@@ -106,7 +106,7 @@ The 1 Mbyte of free memory is the internal memory of the mcu.
 
 ## SPI ram driver
 
-After configuring the ospi controller for spi ram, and putting the heap on the spi ram:
+Configuring the ospi controller for spi ram. Modify linker script to put the heap on the external spi ram. Keep stack in internal ram.
 
 ```
 spiram eid 0d 5d 52 a2 64 31 91 31
