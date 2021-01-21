@@ -106,11 +106,11 @@ The 1 Mbyte of free memory is the internal memory of the mcu.
 
 ## SPI ram driver
 
-After configuring the ospi controller for spi ram:
+After configuring the ospi controller for spi ram, and putting the heap on the spi ram:
 
 ```
-spiram eid: 0d 5d 52 a2 64 31 91 31
-spiram ok
+spiram eid 0d 5d 52 a2 64 31 91 31
+spiram memtest pass
 MicroPython v1.13-257-g4bb072268-dirty on 2021-01-21; DEVEBOX STM32H7XX with STM32H7A3
 Type "help()" for more information.
 >>> import gc
