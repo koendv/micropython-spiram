@@ -126,15 +126,22 @@ The 8 Mbyte of free memory is the external spi ram memory.
 
 ## Test Results
 
-I am afraid reading the errata is fruitful on this one.
+I am afraid reading the [errata](https://www.st.com/resource/en/errata_sheet/dm00598144-stm32h7a3xig-stm32h7b0xb-and-stm32h7b3xi-device-errata-stmicroelectronics.pdf) is fruitful on this one.
 
 Two issues:
 
-- even though the spi ram does not have a DQS pin, set HAL_OSPI_DQS_ENABLE during write, HAL_OSPI_DQS_DISABLE during read; else hardfault during write. Described in errata dm00598144 "Memory-mapped write error response when DQS output is disabled.
+- even though the spi ram does not have a DQS pin, set HAL_OSPI_DQS_ENABLE during write, HAL_OSPI_DQS_DISABLE during read; else hardfault during write. Described in errata [errata](https://www.st.com/resource/en/errata_sheet/dm00598144-stm32h7a3xig-stm32h7b0xb-and-stm32h7b3xi-device-errata-stmicroelectronics.pdf) "Memory-mapped write error response when DQS output is disabled.
 
 - when memory mapping the spi ram, setting MPU_TEX_LEVEL1, MPU_ACCESS_CACHEABLE, MPU_ACCESS_BUFFERABLE results in occasional data corruption during write.
 
-If I connect a logic analyser to the qspi bus, I see the data going from processor to spi ram *occasionally* is corrupt: when I do a write, some bits still have the value before  the write. This seems to be a cache issue.
+```
+Terminal ready
+spiram eid 0d 5d 52 a2 64 31 91 31
+spiram memtest16 fail, address 0x903e2070 written 0x5a5a read 0x0000
+MicroPython v1.13-260-g0b108aaa0-dirty on 2021-01-24; DEVEBOX STM32H7XX with STM32H7A3
+```
+
+If I connect a logic analyser to the qspi bus, I see the data going from processor to spi ram *occasionally* is corrupt: when I do a write, some bytes sometimes still have the value from before the write. This seems to be a cache issue.
 
 This is unfortunate, because external spi ram speed is acceptable only if reads are cached and writes are buffered.
 
