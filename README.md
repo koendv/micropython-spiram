@@ -141,9 +141,9 @@ spiram memtest16 fail, address 0x903e2070 written 0x5a5a read 0x0000
 MicroPython v1.13-260-g0b108aaa0-dirty on 2021-01-24; DEVEBOX STM32H7XX with STM32H7A3
 ```
 
-If I connect a logic analyser to the qspi bus, I see the data going from processor to spi ram *occasionally* is corrupt: when I do a write, some bytes sometimes still have the value from before the write. This seems to be a cache issue.
+If I connect a logic analyser to the qspi bus, I see the data going from processor to spi ram is *occasionally* corrupt: when I do a write, *sometimes* some bytes still have the value from before the write. This seems to be a cache issue. I'm not aware of a workaround.
 
-This is unfortunate, because external spi ram speed is acceptable only if reads are cached and writes are buffered.
+This is unfortunate.
 
 ## Considerations
 
