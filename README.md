@@ -1,6 +1,8 @@
 # micropython-spiram
 
-This is a project to add megabytes of ram to a stm32h7 micropython board, without changing the pcb.
+This is a stm32h7a3 processor, with a single 64mbit qspi ram chip connected over the ospi controller. 
+
+Preliminary conclusion: data corruption when writing to qspi ram. 
 
 Steps:
 
@@ -9,10 +11,6 @@ Steps:
 - replace the stm32h750 processor with a pin-compatible stm32h7a3. The stm32h7a3 supports memory mapping spi ram and flash; the stm32h750 only supports memory-mapping flash.
 - port micropython to the stm32h7a3
 - add spi ram driver
-- compile openmv (Open Machine Vision) for the stm32h7a3
-
-
-*This is work in progress. I'll document each step as I do it.*
 
 ## Take an STM32H7 board
 
@@ -108,6 +106,8 @@ The 1 Mbyte of free memory is the internal memory of the mcu.
 
 Configure the ospi controller for spi ram. Modify linker script to put the heap on the external spi ram. Keep stack in internal ram.
 
+To debug ospi, connect logic analyser to ospi pins and lower ospi clock so logic analyser is able to capture clean signals.
+
 ```
 spiram eid 0d 5d 52 a2 64 31 91 31
 spiram memtest pass
@@ -124,7 +124,19 @@ Type "help()" for more information.
 
 The 8 Mbyte of free memory is the external spi ram memory.
 
-* Work in progress *
+## Test Results
+
+I am afraid reading the errata is fruitful on this one.
+
+Two issues:
+
+- even though the spi ram does not have a DQS pin, set HAL_OSPI_DQS_ENABLE during write, HAL_OSPI_DQS_DISABLE during read; else hardfault during write. Described in errata dm00598144 "Memory-mapped write error response when DQS output is disabled.
+
+- when memory mapping the spi ram, setting MPU_TEX_LEVEL1, MPU_ACCESS_CACHEABLE, MPU_ACCESS_BUFFERABLE results in occasional data corruption during write.
+
+If I connect a logic analyser to the qspi bus, I see the data going from processor to spi ram *occasionally* is corrupt: when I do a write, some bits still have the value before  the write. This seems to be a cache issue.
+
+This is unfortunate, because external spi ram speed is acceptable only if reads are cached and writes are buffered.
 
 ## Considerations
 
