@@ -128,11 +128,11 @@ The 8 Mbyte of free memory is the external spi ram memory.
 
 I am afraid reading the [errata](https://www.st.com/resource/en/errata_sheet/dm00598144-stm32h7a3xig-stm32h7b0xb-and-stm32h7b3xi-device-errata-stmicroelectronics.pdf) is fruitful on this one.
 
-Two issues:
+After experimenting with a single 64Mbit qspi psram on stm32h7a3:
 
-- even though the spi ram does not have a DQS pin, set HAL_OSPI_DQS_ENABLE during write, HAL_OSPI_DQS_DISABLE during read; else hardfault during write. Described in errata [errata](https://www.st.com/resource/en/errata_sheet/dm00598144-stm32h7a3xig-stm32h7b0xb-and-stm32h7b3xi-device-errata-stmicroelectronics.pdf) "Memory-mapped write error response when DQS output is disabled.
-
-- when memory mapping the spi ram, setting MPU_TEX_LEVEL1, MPU_ACCESS_CACHEABLE, MPU_ACCESS_BUFFERABLE results in occasional data corruption during write.
+- reading and writing in spi and qspi mode using *HAL_OSPI_Command()*, *HAL_OSPI_Receive()*, and *HAL_OSPI_Transmit()* works fine.
+- when memory mapping the spi ram using *HAL_OSPI_MemoryMapped()*, even though the spi ram does not have a DQS pin, set *HAL_OSPI_DQS_ENABLE* during write, *HAL_OSPI_DQS_DISABLE* during read; else hardfault during write. Described in [errata](https://www.st.com/resource/en/errata_sheet/dm00598144-stm32h7a3xig-stm32h7b0xb-and-stm32h7b3xi-device-errata-stmicroelectronics.pdf) "Memory-mapped write error response when DQS output is disabled".
+- when memory mapping the spi ram, setting *MPU_TEX_LEVEL1, MPU_ACCESS_CACHEABLE, MPU_ACCESS_BUFFERABLE* results in occasional data corruption during write.
 
 ```
 Terminal ready
