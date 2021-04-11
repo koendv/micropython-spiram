@@ -2,7 +2,7 @@
 
 This is a stm32h7a3 processor, with a single 64mbit qspi ram chip connected over the ospi controller. 
 
-Preliminary conclusion: Using quad spi, there is occasional data corruption when writing to qspi ram. 
+Preliminary conclusion: On a stm32h7a3, in memory mapped mode, an using quad spi, there is occasional data corruption when writing to qspi ram. 
 
 It would be interesting to see if moving to dual-quad spi, with an 8-bit data path, solves these problems.
 
