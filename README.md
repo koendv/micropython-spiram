@@ -2,9 +2,9 @@
 
 This is a stm32h7a3 processor, with a single 64mbit qspi ram chip connected over the ospi controller. 
 
-~~On a stm32h7a3, in memory mapped mode, an using quad spi, there is occasional data corruption when writing to qspi ram. ~~
+A first attempt to use quad spi in memory mapped mode on  stm32h7a3 showed occasional data corruption when writing to qspi ram.
 
-Leon Shan has found a way to [make memory-mapping an spi ram work](https://github.com/koendv/micropython-spiram/issues/1). 
+Update: Leon Shan has found a way to [make memory-mapping an spi ram work](https://github.com/koendv/micropython-spiram/issues/1). 
 
 Steps:
 
